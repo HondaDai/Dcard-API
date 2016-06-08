@@ -49,7 +49,7 @@ var getCollection = function(){
     return new Promise(function(resolve, reject){
         request.get({url: url, headers: headers}, function(err, res, body){
             if(res.statusCode != 200){
-                reject('getCollection error:' + err);
+                reject('getCollection error:' + body);
                 return;
             }
 
@@ -83,7 +83,7 @@ var login = function(email, password){
     return new Promise(function(resolve, reject){
         request.post({url: url, body: JSON.stringify(form), headers: headers}, function(err, res, body){
             if(res.statusCode != 204){
-                reject('login error: ' + err);
+                reject('login error: ' + body);
                 return;
             }
 
