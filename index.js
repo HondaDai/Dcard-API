@@ -5,14 +5,6 @@ var password = 'Dcard_Password';
 
 DcardAPI.login(account, password).then(function(res){
     
-    return DcardAPI.getAllSchool();
-
-}).then(function(allSchool){
-
-    console.log('所有學校:');
-    console.log(allSchool);
-    console.log();
-
     return DcardAPI.getCollection();
 
 }).then(function(collection){

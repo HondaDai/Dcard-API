@@ -110,7 +110,7 @@ var getDcard = function(){
 
 
             if(res.statusCode != 200){
-                reject('getDcard error: ' + body);   
+                resolve('getDcard error: ' + body);   
             } else {
                 CSRFToken = res.headers['x-csrf-token'];
                 body = JSON.parse(body);
@@ -124,6 +124,27 @@ var getDcard = function(){
     });
 }
 
+var getFriends = function(){
+    var url = 'http://www.dcard.tw/_api/me/friends';
+    var headers = {
+        'cookie': cookie,
+        'x-csrf-token': CSRFToken
+    };
+
+    return new Promise(function(resolve, reject){
+        request.get({url: url, headers: headers}, function(err, res, body){
+
+            if(res.statusCode == 200 || res.statusCode == 304){
+                CSRFToken = res.headers['x-csrf-token'];
+                resolve(JSON.parse(body));
+            } else {
+                resolve('getFriends error:' + body);
+            }
+
+        });
+    });
+}
+
 var DcardAPI = {
     testInternet: testInternet,
     getAllSchool: getAllSchool,
@@ -131,7 +152,8 @@ var DcardAPI = {
     // auth
     login: login,
     getCollection: getCollection,
-    getDcard: getDcard
+    getDcard: getDcard,
+    getFriends: getFriends
 };
 
 module.exports = DcardAPI;
