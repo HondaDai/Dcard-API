@@ -80,3 +80,20 @@ DcardAPI.login(account, password).then(function(response){
 });
 ```
 
+---
+
+<a name="getCollection"></a>
+
+### Dcard.getCollection()
+
+得到前幾篇收藏文章的資訊<br>
+
+__參數__
+
+- `collection`: 一個陣列，包含前幾篇收藏文章的資訊，若失敗則傳回 error
+
+```js
+DcardAPI.getCollection().then(function(collection){
+    console.log(collection);
+});
+```
