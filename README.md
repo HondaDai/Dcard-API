@@ -34,3 +34,21 @@ DcardAPI.login(account, password).then(function(res){
 
 });
 ```
+    
+## API 文件
+- [DcardAPI.getAllSchool](#getAllSchool)
+- DcardAPI.login
+- DcardAPI.getCollection
+- DcardAPI.getDcard
+- DcardAPI.getFriends
+
+---
+
+<a name="getAllSchool"></a>
+```js
+Dcard.getAllSchool().then(function(allSchool){
+    console.log(allSchool);
+    // allSchool 是個陣列，包含目前開放的所有學校
+    // 如果失敗則傳回 error
+});
+```
