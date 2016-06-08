@@ -37,10 +37,10 @@ DcardAPI.login(account, password).then(function(res){
     
 ## API 文件
 - [DcardAPI.getAllSchool](#getAllSchool)
-- DcardAPI.login
-- DcardAPI.getCollection
-- DcardAPI.getDcard
-- DcardAPI.getFriends
+- [DcardAPI.login](#login)
+- [DcardAPI.getCollection](#getCollection)
+- [DcardAPI.getDcard](#getDcard)
+- [DcardAPI.getFriends](#getFriends)
 
 ---
 
@@ -59,3 +59,24 @@ Dcard.getAllSchool().then(function(allSchool){
     console.log(allSchool);
 });
 ```
+
+---
+
+<a name="login"></a>
+
+### Dcard.login(Dcard_Account, Dcard_Password)
+
+登入並獲取權限<br>
+
+__參數__
+
+- `Dcard_Account`: Dcard 的帳號
+- `Dcard_Password`: Dcard 的密碼
+- `response`: 一個字串，登入成功會傳回 success，若登入失敗則傳回 error
+
+```js
+DcardAPI.login(account, password).then(function(response){
+    console.log(response);
+});
+```
+
