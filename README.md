@@ -19,6 +19,8 @@ npm install Larry850806/Dcard-API
 ## 如何使用
 
 ```js
+var DcardAPI = require('DcardAPI');
+
 // 登入之後抽今天的卡
 DcardAPI.login(account, password).then(function(res){
 
