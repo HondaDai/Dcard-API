@@ -75,7 +75,7 @@ __參數__
 - `response`: 一個字串，登入成功會傳回 success，若登入失敗則傳回 error
 
 ```js
-DcardAPI.login(account, password).then(function(response){
+DcardAPI.login(Dcard_Account, Dcard_Password).then(function(response){
     console.log(response);
 });
 ```
