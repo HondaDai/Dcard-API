@@ -45,6 +45,8 @@ DcardAPI.login(account, password).then(function(res){
 ---
 
 <a name="getAllSchool"></a>
+### Dcard.getAllSchool()
+取得目前開放的所有學校
 ```js
 Dcard.getAllSchool().then(function(allSchool){
     console.log(allSchool);
