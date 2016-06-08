@@ -1,15 +1,14 @@
 {
-  "name": "google-translation",
-  "version": "1.0.0",
+  "name": "DcardAPI",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.4.0",
     "cheerio": "^0.20.0",
     "request": "^2.72.0"
   }
