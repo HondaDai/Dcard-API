@@ -19,15 +19,8 @@ npm install Larry850806/Dcard-API
 ## 如何使用
 
 ```js
+// 登入之後抽今天的卡
 DcardAPI.login(account, password).then(function(res){
-
-    return DcardAPI.getCollection();
-
-}).then(function(collection){
-
-    console.log('你收藏的文章:');
-    console.log(collection);
-    console.log();
 
     return DcardAPI.getDcard();
 
