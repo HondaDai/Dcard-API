@@ -3,7 +3,7 @@ var DcardAPI = require('./api');
 var account = 'Dcard_Account';
 var password = 'Dcard_Password';
 
-DcardAPI.login(account, password).then(function(){
+DcardAPI.login(account, password).then(function(res){
     
     return DcardAPI.getAllSchool();
 
@@ -19,6 +19,14 @@ DcardAPI.login(account, password).then(function(){
 
     console.log('你收藏的文章:');
     console.log(collection);
+    console.log();
+
+    return DcardAPI.getDcard();
+
+}).then(function(dcard){
+
+    console.log('今天的卡:');
+    console.log(dcard);
     console.log();
 
 });

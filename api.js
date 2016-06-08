@@ -98,11 +98,37 @@ var login = function(email, password){
 
 };
 
+var getDcard = function(){
+    var url = 'http://www.dcard.tw/_api/dcard';
+    var headers = {
+        'cookie': cookie,
+        'x-csrf-token': CSRFToken
+    };
+
+    return new Promise(function(resolve, reject){
+        request.get({url: url, headers: headers}, function(err, res, body){
+            if(res.statusCode != 200){
+                reject('getDcard error: ' + body);   
+            } else {
+                body = JSON.parse(body);
+                if(body.dcard){
+                    resolve(body);
+                } else {
+                    resolve('no card today');
+                }
+            }
+        });
+    });
+}
+
 var DcardAPI = {
     testInternet: testInternet,
-    login: login,
     getAllSchool: getAllSchool,
-    getCollection: getCollection
+
+    // auth
+    login: login,
+    getCollection: getCollection,
+    getDcard: getDcard
 };
 
 module.exports = DcardAPI;
