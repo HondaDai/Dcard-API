@@ -11,7 +11,7 @@ var getAllSchool = function(){
     return new Promise(function(resolve, reject){
         request.get({url: url}, function(err, res, body){
             if(res.statusCode != 200){
-                reject('getAllSchool error:' + err);
+                resolve('getAllSchool error:' + body);
                 return;
             }
 
@@ -34,7 +34,7 @@ var testInternet = function(){
             if(res.statusCode == 200){
                 resolve('test OK');
             } else {
-                reject('testInternet error');
+                resolve('testInternet error');
             }
         });
     });
@@ -49,7 +49,7 @@ var getCollection = function(){
     return new Promise(function(resolve, reject){
         request.get({url: url, headers: headers}, function(err, res, body){
             if(res.statusCode != 200){
-                reject('getCollection error:' + body);
+                resolve('getCollection error:' + body);
                 return;
             }
 
@@ -83,7 +83,7 @@ var login = function(email, password){
     return new Promise(function(resolve, reject){
         request.post({url: url, body: JSON.stringify(form), headers: headers}, function(err, res, body){
             if(res.statusCode != 204){
-                reject('login error: ' + body);
+                resolve('login error: ' + body);
                 return;
             }
 
@@ -107,9 +107,12 @@ var getDcard = function(){
 
     return new Promise(function(resolve, reject){
         request.get({url: url, headers: headers}, function(err, res, body){
+
+
             if(res.statusCode != 200){
                 reject('getDcard error: ' + body);   
             } else {
+                CSRFToken = res.headers['x-csrf-token'];
                 body = JSON.parse(body);
                 if(body.dcard){
                     resolve(body);
