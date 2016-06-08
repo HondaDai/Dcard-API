@@ -45,10 +45,15 @@ DcardAPI.login(account, password).then(function(res){
 ---
 
 <a name="getAllSchool"></a>
+
 ### Dcard.getAllSchool()
+
 取得目前開放的所有學校<br>
+
 __參數__
+
 - `allSchool`: 一個陣列，包含目前開放的所有學校，若失敗則傳回錯誤
+
 ```js
 Dcard.getAllSchool().then(function(allSchool){
     console.log(allSchool);
