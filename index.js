@@ -6,8 +6,7 @@ var getAllSchool = function(){
     return new Promise(function(resolve, reject){
         request.get({url: url}, function(err, res, body){
             if(res.statusCode != 200){
-                console.log('error when get all school');
-                reject(err);
+                reject('getAllSchool error:' + err);
                 return;
             }
 
@@ -26,12 +25,9 @@ var getAllSchool = function(){
 var testInternet = function(){
     return new Promise(function(resolve, reject){
         getAllSchool().then(function(allSchool){
-            if(typeof allSchool === 'object'){
-                resolve('OK');
-            } else {
-                console.log('internet error');
-                reject('internet error');
-            }
+            resolve();
+        }, function(err){
+            reject('testInternet error');
         });
     });
 };
@@ -45,8 +41,7 @@ var getCollection = function(session){
     return new Promise(function(resolve, reject){
         request.get({url: url, headers: headers}, function(err, res, body){
             if(res.statusCode != 200){
-                console.log('get Collection error');
-                reject(err);
+                reject('getCollection error:' + err);
                 return;
             }
 
@@ -85,9 +80,7 @@ var login = function(email, password){
     return new Promise(function(resolve, reject){
         request.post({url: url, body: JSON.stringify(form), headers: headers}, function(err, res, body){
             if(res.statusCode != 204){
-                console.log(body);
-                console.log('login error');
-                reject(err);
+                reject('login error: ' + err);
                 return;
             }
 
@@ -106,7 +99,7 @@ var login = function(email, password){
 
 testInternet().then(function(rst){
 
-    return login('ACCOUNT', 'PASSWORD');
+    return login('pudding850806@gmail.com', 's5334');
 
 }).then(function(session){
 
