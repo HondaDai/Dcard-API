@@ -36,11 +36,11 @@ DcardAPI.login(account, password).then(function(res){
 ```
     
 ## API 文件
-- [DcardAPI.getAllSchool](#getAllSchool)
-- [DcardAPI.login](#login)
-- [DcardAPI.getCollection](#getCollection)
-- [DcardAPI.getDcard](#getDcard)
-- [DcardAPI.getFriends](#getFriends)
+- [`DcardAPI.getAllSchool`](#getAllSchool)
+- [`DcardAPI.login`](#login)
+- [`DcardAPI.getCollection`](#getCollection)
+- [`DcardAPI.getDcard`](#getDcard)
+- [`DcardAPI.getFriends`](#getFriends)
 
 ---
 
