@@ -1,12 +1,12 @@
 # Dcard-API
 
-這是一個 Nodejs module
-這個 module 提供很簡單的 API
-包刮登入、取得好友、今日抽卡等等功能
-
-因為還在開發階段 API 沒有很多
-之後會慢慢新增
-如果需要什麼 API 也可以開個 Issue 讓我知道
+這是一個 Nodejs module<br>
+這個 module 提供很簡單的 API<br>
+包刮登入、取得好友、今日抽卡等等功能<br>
+<br>
+因為還在開發階段 API 還沒有很多<br>
+之後會慢慢新增<br>
+如果需要什麼 API 也可以開個 Issue 讓我知道<br>
 
 ## 環境需求
 
