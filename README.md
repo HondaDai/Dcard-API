@@ -47,7 +47,7 @@ DcardAPI.login(account, password).then(function(res){
 
 ---
 
-<a name="getAllSchool"></a>
+<a name="getAllSchool" />
 
 ### Dcard.getAllSchool()
 
@@ -65,7 +65,7 @@ Dcard.getAllSchool().then(function(allSchool){
 
 ---
 
-<a name="login"></a>
+<a name="login" />
 
 ### Dcard.login(Dcard_Account, Dcard_Password)
 
@@ -85,7 +85,7 @@ DcardAPI.login(Dcard_Account, Dcard_Password).then(function(response){
 
 ---
 
-<a name="getCollection"></a>
+<a name="getCollection" />
 
 ### Dcard.getCollection()
 
@@ -103,7 +103,7 @@ DcardAPI.getCollection().then(function(collection){
 
 ---
 
-<a name="getDcard"></a>
+<a name="getDcard" />
 
 ### Dcard.getDcard()
 
@@ -121,7 +121,7 @@ DcardAPI.getDcard().then(function(dcard){
 
 ---
 
-<a name="getFriends"></a>
+<a name="getFriends" />
 
 ### Dcard.getFriends()
 
