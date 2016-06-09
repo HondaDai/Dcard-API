@@ -55,7 +55,7 @@ DcardAPI.login(account, password).then(function(res){
 
 __參數__
 
-- `allSchool`: 一個陣列，包含目前開放的所有學校，若失敗則傳回錯誤
+- `allSchool`: 一個陣列，包含目前開放的所有學校
 
 ```js
 Dcard.getAllSchool().then(function(allSchool){
@@ -75,7 +75,7 @@ __參數__
 
 - `Dcard_Account`: Dcard 的帳號
 - `Dcard_Password`: Dcard 的密碼
-- `response`: 一個字串，登入成功會傳回 success，若登入失敗則傳回 error
+- `response`: 一個字串，登入成功會傳回 "success"
 
 ```js
 DcardAPI.login(Dcard_Account, Dcard_Password).then(function(response){
@@ -93,7 +93,7 @@ DcardAPI.login(Dcard_Account, Dcard_Password).then(function(response){
 
 __參數__
 
-- `collection`: 一個陣列，包含前幾篇收藏文章的資訊，若失敗則傳回 error
+- `collection`: 一個陣列，包含前幾篇收藏文章的資訊
 
 ```js
 DcardAPI.getCollection().then(function(collection){
@@ -111,7 +111,7 @@ DcardAPI.getCollection().then(function(collection){
 
 __參數__
 
-- `dcard`: 一個物件，包含名字、系級、照片等等，若沒有卡則傳回 "today no card"，失敗則傳回 error
+- `dcard`: 一個物件，包含名字、系級、照片等等，若沒有卡則傳回 "today no card"
 
 ```js
 DcardAPI.getDcard().then(function(dcard){
