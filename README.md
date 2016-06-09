@@ -118,3 +118,21 @@ DcardAPI.getDcard().then(function(dcard){
     console.log(dcard);
 });
 ```
+
+---
+
+<a name="getFriends"></a>
+
+### Dcard.getFriends()
+
+得到所有好友的資訊<br>
+
+__參數__
+
+- `friends`: 一個陣列，每個元素都是一個好友，包含名字、系級、照片等等
+
+```js
+DcardAPI.getFriends().then(function(friends){
+    console.log(friends);
+});
+```
