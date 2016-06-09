@@ -97,3 +97,21 @@ DcardAPI.getCollection().then(function(collection){
     console.log(collection);
 });
 ```
+
+---
+
+<a name="getDcard"></a>
+
+### Dcard.getDcard()
+
+得到今日卡友的資訊<br>
+
+__參數__
+
+- `collection`: 一個物件，包含名字、系級、照片等等，若沒有卡則傳回 "today no card"，失敗則傳回 error
+
+```js
+DcardAPI.getDcard().then(function(dcard){
+    console.log(dcard);
+});
+```
