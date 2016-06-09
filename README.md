@@ -108,7 +108,7 @@ DcardAPI.getCollection().then(function(collection){
 
 __參數__
 
-- `collection`: 一個物件，包含名字、系級、照片等等，若沒有卡則傳回 "today no card"，失敗則傳回 error
+- `dcard`: 一個物件，包含名字、系級、照片等等，若沒有卡則傳回 "today no card"，失敗則傳回 error
 
 ```js
 DcardAPI.getDcard().then(function(dcard){
