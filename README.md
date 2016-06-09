@@ -36,6 +36,9 @@ DcardAPI.login(account, password).then(function(res){
 ```
     
 ## API 文件
+
+這套 API 不使用 reject，如果有錯誤會在 resolve 時傳回去
+
 - [`DcardAPI.getAllSchool`](#getAllSchool)
 - [`DcardAPI.login`](#login)
 - [`DcardAPI.getCollection`](#getCollection)
