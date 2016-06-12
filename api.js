@@ -149,7 +149,7 @@ var getFriends = function(){
 };
 
 var deleteFriend = function(id){
-    var url = 'https://www.dcard.tw/_api/friends/' + id;
+    var url = 'https://www.dcard.tw/_api/friends/' + id.toString();
     var headers = {
         'cookie': cookie,
         'x-csrf-token': CSRFToken
