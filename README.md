@@ -129,10 +129,32 @@ DcardAPI.getDcard().then(function(dcard){
 
 __參數__
 
-- `friends`: 一個陣列，每個元素都是一個好友，包含名字、系級、照片等等
+- `friends`: 一個陣列，每個元素都是一個好友，包含 id、名字、系級、照片等等
 
 ```js
 DcardAPI.getFriends().then(function(friends){
     console.log(friends);
+});
+```
+
+---
+
+<a name="deleteFriend" />
+
+### Dcard.deteleFriend()
+
+刪掉某個卡友<br>
+
+__參數__
+
+- `id`: 你要刪掉的那個好友的 id，可以從`getFriends()`得到
+- `response`: 一個字串，刪除成功會傳回 "delete success"
+
+```js
+DcardAPI.getFriends().then(function(friends){
+    var id = friends[0].id  // 第一個卡友的 id
+    return Dcard.deleteFriend(id);
+}).then(function(response){
+    console.log(response);
 });
 ```
