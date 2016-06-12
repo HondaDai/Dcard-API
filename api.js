@@ -166,6 +166,24 @@ var deleteFriend = function(id){
     });
 };
 
+var getMessage = function(id){
+    var url = 'https://www.dcard.tw/_api/friends/' + id.toString() + '/messages';
+    var headers = {
+        'cookie': cookie,
+        'x-csrf-token': CSRFToken
+    };
+
+    return new Promise(function(resolve, reject){
+        request.get({url: url, headers: headers}, function(err, res, body){
+            if(res.statusCode == 200){
+                resolve(JSON.parse(body));
+            } else {
+                resolve(body);
+            }
+        });
+    });
+};
+
 var DcardAPI = {
     testInternet: testInternet,
     getAllSchool: getAllSchool,
@@ -175,6 +193,7 @@ var DcardAPI = {
     getCollection: getCollection,
     getDcard: getDcard,
     getFriends: getFriends,
+    getMessage: getMessage,
     deleteFriend: deleteFriend
 };
 
