@@ -123,7 +123,7 @@ DcardAPI.getDcard().then(function(dcard){
 
 ---
 
-<a name="getFriends" />
+<a name="getAllFriendInfo" />
 
 ### Dcard.getAllFriendInfo()
 
