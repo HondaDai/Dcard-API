@@ -44,7 +44,7 @@ DcardAPI.login(account, password).then(function(res){
 - [`DcardAPI.getCollection`](#getCollection)
 - [`DcardAPI.getDcard`](#getDcard)
 - [`DcardAPI.getFriends`](#getFriends)
-- [`Dcard.deteleFriend`](#deleteFriend)
+- [`DcardAPI.deteleFriend`](#deleteFriend)
 
 ---
 
@@ -154,7 +154,7 @@ __參數__
 ```js
 DcardAPI.getFriends().then(function(friends){
     var id = friends[0].id  // 第一個卡友的 id
-    return Dcard.deleteFriend(id);
+    return DcardAPI.deleteFriend(id);
 }).then(function(response){
     console.log(response);
 });
