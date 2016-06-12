@@ -174,14 +174,9 @@ var DcardAPI = {
     login: login,
     getCollection: getCollection,
     getDcard: getDcard,
-    getFriends: getFriends
+    getFriends: getFriends,
+    deleteFriend: deleteFriend
 };
-
-login('b03902108@ntu.edu.tw', 's5334').then(function(res){
-    return deleteFriend('52559');
-}).then(function(res){
-    console.log(res);
-});
 
 module.exports = DcardAPI;
 
