@@ -9,7 +9,7 @@ cookie += 'dcard-web.sig=1EBWILvJ8hcmnOQYnshGrFEpotw; ';
 var getAllSchool = function(){
     var url = 'https://www.dcard.tw/_api/forums';
     return new Promise(function(resolve, reject){
-        request.get({url: url}, function(err, res, body){
+        request({url: url}, function(err, res, body){
             if(res.statusCode != 200){
                 resolve('getAllSchool error:' + body);
                 return;
@@ -30,7 +30,7 @@ var getAllSchool = function(){
 var testInternet = function(){
     return new Promise(function(resolve, reject){
         var url = 'https://www.dcard.tw';
-        request.get({url: url}, function(err, res, body){
+        request({url: url}, function(err, res, body){
             if(res.statusCode == 200){
                 resolve('test OK');
             } else {
@@ -43,11 +43,12 @@ var testInternet = function(){
 var getCollection = function(){
     var url = 'http://www.dcard.tw/my/collections';
     var headers = {
-        cookie: cookie
+        'method': 'GET',
+        'cookie': cookie
     };
 
     return new Promise(function(resolve, reject){
-        request.get({url: url, headers: headers}, function(err, res, body){
+        request({url: url, headers: headers}, function(err, res, body){
             if(res.statusCode != 200){
                 resolve('getCollection error:' + body);
                 return;
@@ -69,10 +70,11 @@ var login = function(email, password){
     var url = 'https://www.dcard.tw/_api/sessions';
 
     var headers = {
-        'x-csrf-token': CSRFToken,
+        'method': 'POST',
         'content-type': 'application/json',
         'accept': 'application/json',
-        'cookie': cookie
+        'cookie': cookie,
+        'x-csrf-token': CSRFToken
     };
 
     var form = {
@@ -101,12 +103,13 @@ var login = function(email, password){
 var getDcard = function(){
     var url = 'http://www.dcard.tw/_api/dcard';
     var headers = {
+        'method': 'GET',
         'cookie': cookie,
         'x-csrf-token': CSRFToken
     };
 
     return new Promise(function(resolve, reject){
-        request.get({url: url, headers: headers}, function(err, res, body){
+        request({url: url, headers: headers}, function(err, res, body){
 
 
             if(res.statusCode != 200){
@@ -122,7 +125,7 @@ var getDcard = function(){
             }
         });
     });
-}
+};
 
 var getFriends = function(){
     var url = 'http://www.dcard.tw/_api/me/friends';
@@ -132,7 +135,7 @@ var getFriends = function(){
     };
 
     return new Promise(function(resolve, reject){
-        request.get({url: url, headers: headers}, function(err, res, body){
+        request({url: url, headers: headers}, function(err, res, body){
 
             if(res.statusCode == 200 || res.statusCode == 304){
                 CSRFToken = res.headers['x-csrf-token'];
@@ -143,7 +146,25 @@ var getFriends = function(){
 
         });
     });
-}
+};
+
+var deleteFriend = function(id){
+    var url = 'https://www.dcard.tw/_api/friends/' + id;
+    var headers = {
+        'cookie': cookie,
+        'x-csrf-token': CSRFToken
+    };
+
+    return new Promise(function(resolve, reject){
+        request.delete({url: url, headers: headers}, function(err, res, body){
+            if(res.statusCode == 204){
+                resolve('delete success');   
+            } else {
+                resolve(body);
+            }
+        });
+    });
+};
 
 var DcardAPI = {
     testInternet: testInternet,
@@ -155,6 +176,12 @@ var DcardAPI = {
     getDcard: getDcard,
     getFriends: getFriends
 };
+
+login('b03902108@ntu.edu.tw', 's5334').then(function(res){
+    return deleteFriend('52559');
+}).then(function(res){
+    console.log(res);
+});
 
 module.exports = DcardAPI;
 
