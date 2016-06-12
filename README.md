@@ -44,6 +44,7 @@ DcardAPI.login(account, password).then(function(res){
 - [`DcardAPI.getCollection`](#getCollection)
 - [`DcardAPI.getDcard`](#getDcard)
 - [`DcardAPI.getFriends`](#getFriends)
+- [`Dcard.deteleFriend`](#deleteFriend)
 
 ---
 
