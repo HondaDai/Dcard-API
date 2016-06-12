@@ -171,8 +171,8 @@ DcardAPI.getFriends().then(function(friends){
 
 __參數__
 
-- `id`: 你要得到既樂的那個好友 id，可以從`getFriends()`得到
-- `message`: 一個陣列裡面包了很多物件，每個物件都是一封信，包含內容、時間等等
+- `id`: 你要得到記錄的那個好友 id，可以從`getFriends()`得到
+- `message`: 一個陣列裡面包了很多封信，每一封信都包含內容、時間等等
 
 ```js
 DcardAPI.getFriends().then(function(friends){
