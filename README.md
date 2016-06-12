@@ -43,7 +43,7 @@ DcardAPI.login(account, password).then(function(res){
 - [`DcardAPI.login`](#login)
 - [`DcardAPI.getCollection`](#getCollection)
 - [`DcardAPI.getDcard`](#getDcard)
-- [`DcardAPI.getFriends`](#getFriends)
+- [`DcardAPI.getAllFriendInfo`](#getAllFriendInfo)
 - [`DcardAPI.deteleFriend`](#deleteFriend)
 - [`DcardAPI.getMessage`](#getMessage)
 
@@ -125,17 +125,17 @@ DcardAPI.getDcard().then(function(dcard){
 
 <a name="getFriends" />
 
-### Dcard.getFriends()
+### Dcard.getAllFriendInfo()
 
 得到所有好友的資訊<br>
 
 __參數__
 
-- `friends`: 一個陣列，每個元素都是一個好友，包含 id、名字、系級、照片等等
+- `allFriendInfo`: 一個陣列，每個元素都是一個好友，包含 id、名字、系級、照片等等
 
 ```js
-DcardAPI.getFriends().then(function(friends){
-    console.log(friends);
+DcardAPI.getAllFriendInfo().then(function(allFriendInfo){
+    console.log(allFriendInfo);
 });
 ```
 
@@ -149,12 +149,12 @@ DcardAPI.getFriends().then(function(friends){
 
 __參數__
 
-- `id`: 你要刪掉的那個好友 id，可以從`getFriends()`得到
+- `id`: 你要刪掉的那個好友 id，可以從`getAllFriendInfo()`得到
 - `response`: 一個字串，刪除成功會傳回 "delete success"
 
 ```js
-DcardAPI.getFriends().then(function(friends){
-    var id = friends[0].id              // 第一個卡友的 id
+DcardAPI.getAllFriendInfo().then(function(allFriendInfo){
+    var id = allFriendInfo[0].id              // 第一個卡友的 id
     return DcardAPI.deleteFriend(id);   // 刪掉第一個卡友
 }).then(function(response){
     console.log(response);      // 檢查 response 看有沒有成功刪掉
@@ -171,12 +171,12 @@ DcardAPI.getFriends().then(function(friends){
 
 __參數__
 
-- `id`: 你要得到記錄的那個好友 id，可以從`getFriends()`得到
+- `id`: 你要得到記錄的那個好友 id，可以從`getAllFriendInfo()`得到
 - `message`: 一個陣列裡面包了很多封信，每一封信都包含內容、時間等等
 
 ```js
-DcardAPI.getFriends().then(function(friends){
-    var id = friends[0].id              // 第一個卡友的 id
+DcardAPI.getAllFriendInfo().then(function(allFriendInfo){
+    var id = allFriendInfo[0].id        // 第一個卡友的 id
     return DcardAPI.getMessage(id);     // 得到跟第一個卡友的記錄
 }).then(function(message){
     console.log(message);

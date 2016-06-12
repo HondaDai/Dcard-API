@@ -127,7 +127,7 @@ var getDcard = function(){
     });
 };
 
-var getFriends = function(){
+var getAllFriendInfo = function(){
     var url = 'http://www.dcard.tw/_api/me/friends';
     var headers = {
         'cookie': cookie,
@@ -141,7 +141,7 @@ var getFriends = function(){
                 CSRFToken = res.headers['x-csrf-token'];
                 resolve(JSON.parse(body));
             } else {
-                resolve('getFriends error:' + body);
+                resolve('getAllFriendInfo error:' + body);
             }
 
         });
@@ -192,7 +192,7 @@ var DcardAPI = {
     login: login,
     getCollection: getCollection,
     getDcard: getDcard,
-    getFriends: getFriends,
+    getAllFriendInfo: getAllFriendInfo,
     getMessage: getMessage,
     deleteFriend: deleteFriend
 };
