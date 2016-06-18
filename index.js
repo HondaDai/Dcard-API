@@ -1,18 +1,10 @@
 var DcardAPI = require('./api');
 
-var account = 'Dcard_Account';
+var email = 'Dcard_Account';
 var password = 'Dcard_Password';
 
-DcardAPI.login(account, password).then(function(res){
+DcardAPI.login({email: email, password: password}).then(function(res){
     
-    return DcardAPI.getCollection();
-
-}).then(function(collection){
-
-    console.log('你收藏的文章:');
-    console.log(collection);
-    console.log();
-
     return DcardAPI.getDcard();
 
 }).then(function(dcard){
@@ -20,5 +12,9 @@ DcardAPI.login(account, password).then(function(res){
     console.log('今天的卡:');
     console.log(dcard);
     console.log();
+
+}).catch((err) => {
+
+    console.log(err);
 
 });
