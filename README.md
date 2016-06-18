@@ -24,6 +24,7 @@ var DcardAPI = require('./api');
 var email = 'Dcard_Email';
 var password = 'Dcard_Password';
 
+// 登入並取得今天的卡
 DcardAPI.login({email: email, password: password}).then(function(res){
     
     return DcardAPI.getDcard();
@@ -36,6 +37,7 @@ DcardAPI.login({email: email, password: password}).then(function(res){
 
 }).catch((err) => {
 
+    // 檢查有沒有錯誤
     console.log(err);
 
 });
@@ -43,8 +45,7 @@ DcardAPI.login({email: email, password: password}).then(function(res){
     
 ## API 文件
 
-### 成功時資料會從 resolve 傳回去
-### 失敗時錯誤會從 reject 傳回去
+成功時資料會從 resolve 傳回去，失敗時錯誤會從 reject 傳回去，所以記得要確認 response 跟 catch。
 
 - [`DcardAPI.getAllSchool`](#getAllSchool)
 - [`DcardAPI.login`](#login)
