@@ -1,6 +1,6 @@
 var DcardAPI = require('./api');
 
-var email = 'Dcard_Account';
+var email = 'Dcard_Email';
 var password = 'Dcard_Password';
 
 DcardAPI.login({email: email, password: password}).then(function(res){

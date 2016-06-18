@@ -19,11 +19,13 @@ npm install Larry850806/Dcard-API
 ## 如何使用
 
 ```js
-var DcardAPI = require('DcardAPI');
+var DcardAPI = require('./api');
 
-// 登入之後抽今天的卡
-DcardAPI.login(account, password).then(function(res){
+var email = 'Dcard_Email';
+var password = 'Dcard_Password';
 
+DcardAPI.login({email: email, password: password}).then(function(res){
+    
     return DcardAPI.getDcard();
 
 }).then(function(dcard){
@@ -32,16 +34,20 @@ DcardAPI.login(account, password).then(function(res){
     console.log(dcard);
     console.log();
 
+}).catch((err) => {
+
+    console.log(err);
+
 });
 ```
     
 ## API 文件
 
-這套 API 不使用 reject，如果有錯誤會在 resolve 時傳回去
+### 成功時資料會從 resolve 傳回去
+### 失敗時錯誤會從 reject 傳回去
 
 - [`DcardAPI.getAllSchool`](#getAllSchool)
 - [`DcardAPI.login`](#login)
-- [`DcardAPI.getCollection`](#getCollection)
 - [`DcardAPI.getDcard`](#getDcard)
 - [`DcardAPI.getAllFriendInfo`](#getAllFriendInfo)
 - [`DcardAPI.deteleFriend`](#deleteFriend)
@@ -69,37 +75,24 @@ Dcard.getAllSchool().then(function(allSchool){
 
 <a name="login" />
 
-### Dcard.login(Dcard_Account, Dcard_Password)
+### Dcard.login({email: Dcard_Email, password: Dcard_Password})
 
 登入並獲取權限<br>
 
 __參數__
 
-- `Dcard_Account`: Dcard 的帳號
+- `Dcard_Email`: Dcard 的帳號
 - `Dcard_Password`: Dcard 的密碼
-- `response`: 一個字串，登入成功會傳回 "success"
+- `response`: 一個字串，登入成功會傳回 "login success"
 
 ```js
-DcardAPI.login(Dcard_Account, Dcard_Password).then(function(response){
+var account = {
+    email: Dcard_Email,
+    password: Dcard_Password
+};
+
+DcardAPI.login(account).then(function(response){
     console.log(response);
-});
-```
-
----
-
-<a name="getCollection" />
-
-### Dcard.getCollection()
-
-得到前幾篇收藏文章的資訊<br>
-
-__參數__
-
-- `collection`: 一個陣列，包含前幾篇收藏文章的資訊
-
-```js
-DcardAPI.getCollection().then(function(collection){
-    console.log(collection);
 });
 ```
 
@@ -113,7 +106,7 @@ DcardAPI.getCollection().then(function(collection){
 
 __參數__
 
-- `dcard`: 一個物件，包含名字、系級、照片等等，若沒有卡則傳回 "today no card"
+- `dcard`: 今天的卡，包含名字、系級、照片等等，若沒有卡則傳回 "today no card"
 
 ```js
 DcardAPI.getDcard().then(function(dcard){
@@ -131,7 +124,7 @@ DcardAPI.getDcard().then(function(dcard){
 
 __參數__
 
-- `allFriendInfo`: 一個陣列，每個元素都是一個好友，包含 id、名字、系級、照片等等
+- `allFriendInfo`: 一個陣列，包含每個好友的 id、名字、系級、照片等等
 
 ```js
 DcardAPI.getAllFriendInfo().then(function(allFriendInfo){
@@ -149,12 +142,12 @@ DcardAPI.getAllFriendInfo().then(function(allFriendInfo){
 
 __參數__
 
-- `id`: 你要刪掉的那個好友 id，可以從`getAllFriendInfo()`得到
+- `id`: 好友 id，可以從`getAllFriendInfo()`得到
 - `response`: 一個字串，刪除成功會傳回 "delete success"
 
 ```js
 DcardAPI.getAllFriendInfo().then(function(allFriendInfo){
-    var id = allFriendInfo[0].id              // 第一個卡友的 id
+    var id = allFriendInfo[0].id        // 第一個卡友的 id
     return DcardAPI.deleteFriend(id);   // 刪掉第一個卡友
 }).then(function(response){
     console.log(response);      // 檢查 response 看有沒有成功刪掉
@@ -171,8 +164,8 @@ DcardAPI.getAllFriendInfo().then(function(allFriendInfo){
 
 __參數__
 
-- `id`: 你要得到記錄的那個好友 id，可以從`getAllFriendInfo()`得到
-- `message`: 一個陣列裡面包了很多封信，每一封信都包含內容、時間等等
+- `id`: 好友 id，可以從`getAllFriendInfo()`得到
+- `message`: 裡面包含很多封信，每一封信都包含內容、時間等等
 
 ```js
 DcardAPI.getAllFriendInfo().then(function(allFriendInfo){
