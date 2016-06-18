@@ -19,7 +19,7 @@ npm install Larry850806/Dcard-API
 ## 如何使用
 
 ```js
-var DcardAPI = require('./api');
+var DcardAPI = require('DcardAPI');
 
 var email = 'Dcard_Email';
 var password = 'Dcard_Password';
